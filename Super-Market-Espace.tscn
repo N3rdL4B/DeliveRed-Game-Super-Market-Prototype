@@ -718,6 +718,23 @@ skeleton = NodePath("../..")
 transform = Transform( 0.158607, 0, 1.49599, 0, 1.27623, 0, -2.11345, 0, 0.224073, 0.0565677, 0.632778, 0.0829418 )
 modulate = Color( 0.968627, 1, 0, 1 )
 
+[node name="Botella-interactiva8" type="Area" parent="Obtejos-Interactivos"]
+transform = Transform( 0.66473, 0, 0, 0, 0.78356, 0, 0, 0, 0.470522, 1.81095, 0.216914, 2.35101 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella-interactiva8"]
+shape = SubResource( 14 )
+
+[node name="bottle_1" type="MeshInstance" parent="Obtejos-Interactivos/Botella-interactiva8"]
+transform = Transform( 1.50437, 0, 0, 0, 1.27623, 0, 0, 0, 2.1253, 0.00255418, -0.224914, 0.00216341 )
+use_in_baked_light = true
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Obtejos-Interactivos/Botella-interactiva8"]
+transform = Transform( 0.158607, 0, 1.49599, 0, 1.27623, 0, -2.11345, 0, 0.224073, 0.0565677, 0.632778, 0.0829418 )
+modulate = Color( 0.968627, 1, 0, 1 )
+
 [editable path="Terreno/Spatial"]
 [editable path="Terreno/Spatial2"]
 [editable path="Terreno/Spatial3"]
