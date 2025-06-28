@@ -1,0 +1,6 @@
+.import/
+.export/
+.cache/
+*.import
+*.translation
+godot/editor_settings-*.tres

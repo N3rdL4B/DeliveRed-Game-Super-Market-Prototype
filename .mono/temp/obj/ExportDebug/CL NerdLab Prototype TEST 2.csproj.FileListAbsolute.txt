@@ -1,0 +1,9 @@
+C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\bin\ExportDebug\CL NerdLab Prototype TEST 2.dll
+C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\bin\ExportDebug\CL NerdLab Prototype TEST 2.pdb
+C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.csproj.AssemblyReference.cache
+C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.AssemblyInfoInputs.cache
+C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.AssemblyInfo.cs
+C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.csproj.CoreCompileInputs.cache
+C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.dll
+C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.pdb

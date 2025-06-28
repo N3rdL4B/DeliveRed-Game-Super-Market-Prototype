@@ -1,0 +1,760 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/models/FBX_format/floor.fbx" type="PackedScene" id=1]
+[ext_resource path="res://assets/models/FBX_format/freezer.fbx" type="PackedScene" id=2]
+[ext_resource path="res://assets/models/FBX_format/freezers-standing.fbx" type="PackedScene" id=3]
+[ext_resource path="res://assets/models/FBX_format/shelf-end.fbx" type="PackedScene" id=4]
+[ext_resource path="res://assets/models/FBX_format/cash-register.fbx" type="PackedScene" id=5]
+[ext_resource path="res://scripts/Jugador/Jugador.cs" type="Script" id=6]
+[ext_resource path="res://assets/models/GLB_format/shopping-cart.glb" type="PackedScene" id=7]
+[ext_resource path="res://assets/models/GLB_format/wall-window.glb" type="PackedScene" id=8]
+[ext_resource path="res://assets/models/GLB_format/wall-corner.glb" type="PackedScene" id=9]
+[ext_resource path="res://assets/models/GLB_format/wall.glb" type="PackedScene" id=10]
+[ext_resource path="res://assets/models/GLB_format/shelf-boxes.glb" type="PackedScene" id=11]
+[ext_resource path="res://assets/models/GLB_format/bottle-return.glb" type="PackedScene" id=12]
+[ext_resource path="res://assets/models/GLB_format/display-fruit.glb" type="PackedScene" id=13]
+[ext_resource path="res://assets/models/FBX_format/colormap.material" type="Material" id=14]
+[ext_resource path="res://HUD.cs" type="Script" id=15]
+[ext_resource path="res://scripts/ObjetosInteractivos/Botellainteractiva.cs" type="Script" id=16]
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.266025
+height = 0.002
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.509165, 0.0220453, 0.505637 )
+
+[sub_resource type="BoxShape" id=10]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.197526, 1, 0.212121 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1, 1.14132, 1 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1, 1, 0.541071 )
+
+[sub_resource type="BoxShape" id=8]
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 1, 0.416281, 1 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 0.21314, 0.223489, 1 )
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 0.186301, 0.213939, 0.217701 )
+
+[sub_resource type="ArrayMesh" id=13]
+blend_shape_mode = 0
+surfaces/0 = {
+"aabb": AABB( -0.068, 0, -0.068, 0.13601, 0.272, 0.136 ),
+"array_data": PoolByteArray( 149, 67, 139, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 61, 0, 0, 0, 0, 244, 242, 68, 61, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 61, 0, 0, 0, 0, 244, 242, 68, 189, 0, 129, 127, 63, 192, 58, 204, 57, 0, 0, 0, 0, 0, 0, 0, 0, 149, 67, 139, 61, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 61, 0, 0, 0, 0, 244, 242, 68, 189, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 61, 0, 0, 0, 0, 244, 242, 68, 61, 0, 129, 127, 63, 192, 58, 204, 57, 0, 0, 0, 0, 0, 0, 0, 0, 149, 67, 139, 189, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 61, 0, 0, 0, 0, 244, 242, 68, 189, 0, 129, 127, 63, 192, 58, 204, 57, 0, 0, 0, 0, 0, 0, 0, 0, 149, 67, 139, 61, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 189, 0, 0, 0, 0, 244, 242, 68, 61, 0, 129, 127, 63, 192, 58, 204, 57, 0, 0, 0, 0, 0, 0, 0, 0, 149, 67, 139, 189, 0, 129, 127, 63, 192, 58, 204, 57, 0, 0, 0, 0, 0, 0, 0, 0, 149, 67, 139, 61, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 189, 0, 0, 0, 0, 244, 242, 68, 189, 0, 129, 127, 63, 192, 58, 204, 57, 0, 0, 0, 0, 0, 0, 0, 0, 149, 67, 139, 189, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 189, 0, 0, 0, 0, 244, 242, 68, 61, 0, 129, 127, 63, 192, 58, 204, 57, 149, 67, 139, 189, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 189, 0, 0, 0, 0, 244, 242, 68, 189, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 189, 0, 0, 0, 0, 244, 242, 68, 61, 0, 129, 127, 63, 192, 58, 204, 57, 244, 242, 68, 189, 0, 0, 0, 0, 244, 242, 68, 189, 129, 63, 127, 63, 192, 58, 204, 57, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 189, 129, 63, 127, 63, 192, 58, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 149, 67, 139, 189, 127, 127, 127, 63, 192, 58, 204, 57, 0, 0, 0, 0, 149, 67, 11, 62, 149, 67, 139, 189, 127, 127, 127, 63, 192, 58, 0, 57, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 189, 129, 63, 127, 63, 192, 58, 0, 57, 0, 0, 0, 0, 149, 67, 11, 62, 149, 67, 139, 189, 127, 127, 127, 63, 192, 58, 0, 57, 244, 242, 68, 61, 0, 0, 0, 0, 244, 242, 68, 189, 127, 63, 127, 63, 192, 58, 204, 57, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 189, 127, 63, 127, 63, 192, 58, 0, 57, 0, 0, 0, 0, 149, 67, 11, 62, 149, 67, 139, 189, 127, 127, 127, 63, 192, 58, 0, 57, 0, 0, 0, 0, 149, 67, 11, 62, 149, 67, 139, 61, 0, 38, 127, 193, 192, 58, 0, 57, 169, 19, 208, 165, 96, 229, 80, 62, 198, 249, 27, 61, 0, 38, 127, 193, 192, 58, 153, 56, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 61, 208, 30, 127, 193, 192, 58, 0, 57, 59, 149, 220, 188, 96, 229, 80, 62, 59, 149, 220, 60, 208, 30, 127, 193, 192, 58, 153, 56, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 61, 208, 30, 127, 193, 192, 58, 0, 57, 169, 19, 208, 165, 96, 229, 80, 62, 198, 249, 27, 61, 0, 38, 127, 193, 192, 58, 153, 56, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 189, 160, 78, 127, 63, 192, 58, 0, 57, 59, 149, 220, 188, 96, 229, 80, 62, 59, 149, 220, 188, 160, 78, 127, 63, 192, 58, 153, 56, 0, 0, 0, 0, 149, 67, 11, 62, 149, 67, 139, 189, 88, 127, 127, 63, 192, 58, 0, 57, 169, 19, 208, 165, 96, 229, 80, 62, 198, 249, 27, 189, 88, 127, 127, 63, 192, 58, 153, 56, 59, 149, 220, 188, 96, 229, 80, 62, 59, 149, 220, 188, 160, 78, 127, 63, 192, 58, 153, 56, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 61, 48, 30, 127, 193, 192, 58, 0, 57, 59, 149, 220, 60, 96, 229, 80, 62, 59, 149, 220, 60, 48, 30, 127, 193, 192, 58, 153, 56, 0, 0, 0, 0, 149, 67, 11, 62, 149, 67, 139, 61, 0, 38, 127, 193, 192, 58, 0, 57, 169, 19, 208, 165, 96, 229, 80, 62, 198, 249, 27, 61, 0, 38, 127, 193, 192, 58, 153, 56, 0, 0, 0, 0, 149, 67, 11, 62, 149, 67, 139, 61, 0, 38, 127, 193, 192, 58, 0, 57, 59, 149, 220, 60, 96, 229, 80, 62, 59, 149, 220, 60, 48, 30, 127, 193, 192, 58, 153, 56, 149, 67, 139, 189, 149, 67, 11, 62, 0, 0, 0, 0, 168, 38, 127, 63, 192, 58, 0, 57, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 61, 208, 30, 127, 193, 192, 58, 0, 57, 198, 249, 27, 189, 96, 229, 80, 62, 0, 0, 0, 0, 168, 38, 127, 63, 192, 58, 153, 56, 59, 149, 220, 188, 96, 229, 80, 62, 59, 149, 220, 60, 208, 30, 127, 193, 192, 58, 153, 56, 198, 249, 27, 189, 96, 229, 80, 62, 0, 0, 0, 0, 168, 38, 127, 63, 192, 58, 153, 56, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 61, 208, 30, 127, 193, 192, 58, 0, 57, 149, 67, 139, 61, 149, 67, 11, 62, 0, 0, 0, 0, 127, 0, 127, 63, 192, 58, 0, 57, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 61, 63, 0, 127, 193, 192, 58, 0, 57, 149, 67, 139, 61, 0, 0, 0, 0, 0, 0, 0, 0, 127, 0, 127, 63, 192, 58, 204, 57, 244, 242, 68, 61, 0, 0, 0, 0, 244, 242, 68, 61, 63, 0, 127, 193, 192, 58, 204, 57, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 61, 63, 0, 127, 193, 192, 58, 0, 57, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 61, 63, 0, 127, 193, 192, 58, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 149, 67, 139, 61, 0, 0, 127, 193, 192, 58, 204, 57, 0, 0, 0, 0, 149, 67, 11, 62, 149, 67, 139, 61, 0, 0, 127, 193, 192, 58, 0, 57, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 61, 63, 0, 127, 193, 192, 58, 0, 57, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 189, 96, 78, 127, 63, 192, 58, 0, 57, 59, 149, 220, 60, 96, 229, 80, 62, 59, 149, 220, 188, 96, 78, 127, 63, 192, 58, 153, 56, 149, 67, 139, 61, 149, 67, 11, 62, 0, 0, 0, 0, 88, 38, 127, 63, 192, 58, 0, 57, 198, 249, 27, 61, 96, 229, 80, 62, 0, 0, 0, 0, 88, 38, 127, 63, 192, 58, 153, 56, 149, 67, 139, 61, 149, 67, 11, 62, 0, 0, 0, 0, 88, 38, 127, 63, 192, 58, 0, 57, 59, 149, 220, 60, 96, 229, 80, 62, 59, 149, 220, 188, 96, 78, 127, 63, 192, 58, 153, 56, 149, 67, 139, 189, 0, 0, 0, 0, 0, 0, 0, 0, 129, 0, 127, 63, 192, 58, 204, 57, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 189, 129, 63, 127, 63, 192, 58, 0, 57, 149, 67, 139, 189, 149, 67, 11, 62, 0, 0, 0, 0, 129, 0, 127, 63, 192, 58, 0, 57, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 189, 129, 63, 127, 63, 192, 58, 0, 57, 198, 249, 27, 61, 96, 229, 80, 62, 0, 0, 0, 0, 88, 38, 127, 63, 192, 58, 153, 56, 59, 149, 220, 60, 96, 229, 80, 62, 59, 149, 220, 60, 48, 30, 127, 193, 192, 58, 153, 56, 149, 67, 139, 61, 149, 67, 11, 62, 0, 0, 0, 0, 88, 38, 127, 63, 192, 58, 0, 57, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 61, 48, 30, 127, 193, 192, 58, 0, 57, 149, 67, 139, 61, 149, 67, 11, 62, 0, 0, 0, 0, 88, 38, 127, 63, 192, 58, 0, 57, 59, 149, 220, 60, 96, 229, 80, 62, 59, 149, 220, 60, 48, 30, 127, 193, 192, 58, 153, 56, 244, 242, 68, 189, 0, 0, 0, 0, 244, 242, 68, 61, 193, 0, 127, 193, 192, 58, 204, 57, 149, 67, 139, 189, 149, 67, 11, 62, 0, 0, 0, 0, 129, 0, 127, 63, 192, 58, 0, 57, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 61, 193, 0, 127, 193, 192, 58, 0, 57, 149, 67, 139, 189, 149, 67, 11, 62, 0, 0, 0, 0, 129, 0, 127, 63, 192, 58, 0, 57, 169, 19, 208, 165, 96, 229, 80, 62, 198, 249, 27, 189, 88, 127, 127, 63, 192, 58, 153, 56, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 189, 96, 78, 127, 63, 192, 58, 0, 57, 59, 149, 220, 60, 96, 229, 80, 62, 59, 149, 220, 188, 96, 78, 127, 63, 192, 58, 153, 56, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 189, 96, 78, 127, 63, 192, 58, 0, 57, 169, 19, 208, 165, 96, 229, 80, 62, 198, 249, 27, 189, 88, 127, 127, 63, 192, 58, 153, 56, 244, 242, 68, 61, 149, 67, 11, 62, 244, 242, 68, 189, 127, 63, 127, 63, 192, 58, 0, 57, 149, 67, 139, 61, 149, 67, 11, 62, 0, 0, 0, 0, 127, 0, 127, 63, 192, 58, 0, 57, 244, 242, 68, 189, 149, 67, 11, 62, 244, 242, 68, 189, 160, 78, 127, 63, 192, 58, 0, 57, 149, 67, 139, 189, 149, 67, 11, 62, 0, 0, 0, 0, 168, 38, 127, 63, 192, 58, 0, 57, 59, 149, 220, 188, 96, 229, 80, 62, 59, 149, 220, 188, 160, 78, 127, 63, 192, 58, 153, 56, 198, 249, 27, 189, 96, 229, 80, 62, 0, 0, 0, 0, 168, 38, 127, 63, 192, 58, 153, 56, 59, 149, 220, 188, 96, 229, 80, 62, 59, 149, 220, 188, 160, 78, 127, 63, 192, 58, 153, 56, 198, 249, 27, 189, 96, 229, 80, 62, 0, 0, 0, 0, 139, 247, 127, 63, 192, 57, 153, 58, 59, 149, 220, 188, 96, 229, 80, 62, 59, 149, 220, 60, 196, 250, 127, 193, 192, 57, 153, 58, 240, 207, 49, 189, 149, 67, 139, 62, 169, 19, 208, 37, 139, 247, 127, 63, 192, 57, 51, 58, 235, 118, 251, 188, 149, 67, 139, 62, 235, 118, 251, 60, 196, 250, 127, 193, 192, 57, 51, 58, 240, 207, 49, 189, 149, 67, 139, 62, 169, 19, 208, 37, 139, 247, 127, 63, 192, 57, 51, 58, 169, 19, 208, 165, 96, 229, 80, 62, 198, 249, 27, 189, 117, 129, 127, 63, 192, 57, 153, 58, 169, 19, 208, 37, 149, 67, 139, 62, 240, 207, 49, 189, 117, 129, 127, 63, 192, 57, 51, 58, 59, 149, 220, 60, 96, 229, 80, 62, 59, 149, 220, 188, 120, 190, 127, 63, 192, 57, 153, 58, 235, 118, 251, 60, 149, 67, 139, 62, 235, 118, 251, 188, 120, 190, 127, 63, 192, 57, 51, 58, 169, 19, 208, 37, 149, 67, 139, 62, 240, 207, 49, 189, 117, 129, 127, 63, 192, 57, 51, 58, 240, 207, 49, 61, 149, 67, 139, 62, 169, 19, 208, 37, 0, 127, 127, 63, 192, 57, 51, 58, 235, 118, 251, 60, 149, 67, 139, 62, 235, 118, 251, 188, 0, 127, 127, 63, 192, 57, 51, 58, 235, 118, 251, 60, 149, 67, 139, 62, 235, 118, 251, 60, 0, 127, 127, 63, 192, 57, 51, 58, 169, 19, 208, 37, 149, 67, 139, 62, 240, 207, 49, 189, 0, 127, 127, 63, 192, 57, 51, 58, 235, 118, 251, 60, 149, 67, 139, 62, 235, 118, 251, 60, 0, 127, 127, 63, 192, 57, 51, 58, 235, 118, 251, 60, 149, 67, 139, 62, 235, 118, 251, 188, 0, 127, 127, 63, 192, 57, 51, 58, 169, 19, 208, 37, 149, 67, 139, 62, 240, 207, 49, 61, 0, 127, 127, 63, 192, 57, 51, 58, 235, 118, 251, 60, 149, 67, 139, 62, 235, 118, 251, 60, 0, 127, 127, 63, 192, 57, 51, 58, 169, 19, 208, 37, 149, 67, 139, 62, 240, 207, 49, 189, 0, 127, 127, 63, 192, 57, 51, 58, 235, 118, 251, 188, 149, 67, 139, 62, 235, 118, 251, 188, 0, 127, 127, 63, 192, 57, 51, 58, 169, 19, 208, 37, 149, 67, 139, 62, 240, 207, 49, 61, 0, 127, 127, 63, 192, 57, 51, 58, 169, 19, 208, 37, 149, 67, 139, 62, 240, 207, 49, 189, 0, 127, 127, 63, 192, 57, 51, 58, 235, 118, 251, 188, 149, 67, 139, 62, 235, 118, 251, 60, 0, 127, 127, 63, 192, 57, 51, 58, 169, 19, 208, 37, 149, 67, 139, 62, 240, 207, 49, 61, 0, 127, 127, 63, 192, 57, 51, 58, 235, 118, 251, 188, 149, 67, 139, 62, 235, 118, 251, 188, 0, 127, 127, 63, 192, 57, 51, 58, 240, 207, 49, 189, 149, 67, 139, 62, 169, 19, 208, 37, 0, 127, 127, 63, 192, 57, 51, 58, 235, 118, 251, 188, 149, 67, 139, 62, 235, 118, 251, 60, 0, 127, 127, 63, 192, 57, 51, 58, 235, 118, 251, 188, 149, 67, 139, 62, 235, 118, 251, 188, 0, 127, 127, 63, 192, 57, 51, 58, 59, 149, 220, 188, 96, 229, 80, 62, 59, 149, 220, 188, 136, 190, 127, 63, 192, 57, 153, 58, 235, 118, 251, 188, 149, 67, 139, 62, 235, 118, 251, 188, 136, 190, 127, 63, 192, 57, 51, 58, 169, 19, 208, 37, 149, 67, 139, 62, 240, 207, 49, 189, 117, 129, 127, 63, 192, 57, 51, 58, 59, 149, 220, 60, 96, 229, 80, 62, 59, 149, 220, 60, 60, 250, 127, 193, 192, 57, 153, 58, 235, 118, 251, 60, 149, 67, 139, 62, 235, 118, 251, 60, 60, 250, 127, 193, 192, 57, 51, 58, 169, 19, 208, 165, 96, 229, 80, 62, 198, 249, 27, 61, 0, 247, 127, 193, 192, 57, 153, 58, 169, 19, 208, 37, 149, 67, 139, 62, 240, 207, 49, 61, 0, 247, 127, 193, 192, 57, 51, 58, 240, 207, 49, 189, 149, 67, 139, 62, 169, 19, 208, 37, 139, 247, 127, 63, 192, 57, 51, 58, 235, 118, 251, 188, 149, 67, 139, 62, 235, 118, 251, 60, 196, 250, 127, 193, 192, 57, 51, 58, 235, 118, 251, 60, 149, 67, 139, 62, 235, 118, 251, 188, 120, 190, 127, 63, 192, 57, 51, 58, 240, 207, 49, 61, 149, 67, 139, 62, 169, 19, 208, 37, 117, 247, 127, 63, 192, 57, 51, 58, 198, 249, 27, 61, 96, 229, 80, 62, 0, 0, 0, 0, 117, 247, 127, 63, 192, 57, 153, 58 ),
+"array_index_data": PoolByteArray( 128, 0, 98, 0, 129, 0, 119, 0, 96, 0, 120, 0, 96, 0, 98, 0, 97, 0, 84, 0, 24, 0, 85, 0, 18, 0, 66, 0, 65, 0, 44, 0, 46, 0, 45, 0, 20, 0, 24, 0, 23, 0, 0, 0, 2, 0, 1, 0, 130, 0, 129, 0, 98, 0, 121, 0, 120, 0, 96, 0, 99, 0, 100, 0, 98, 0, 52, 0, 85, 0, 24, 0, 67, 0, 65, 0, 68, 0, 47, 0, 49, 0, 48, 0, 25, 0, 26, 0, 24, 0, 3, 0, 5, 0, 4, 0, 130, 0, 122, 0, 129, 0, 122, 0, 124, 0, 123, 0, 101, 0, 103, 0, 102, 0, 56, 0, 75, 0, 57, 0, 69, 0, 71, 0, 70, 0, 50, 0, 52, 0, 51, 0, 27, 0, 29, 0, 28, 0, 6, 0, 8, 0, 7, 0, 123, 0, 129, 0, 122, 0, 125, 0, 123, 0, 124, 0, 104, 0, 106, 0, 105, 0, 77, 0, 57, 0, 75, 0, 72, 0, 74, 0, 73, 0, 53, 0, 54, 0, 52, 0, 30, 0, 32, 0, 31, 0, 9, 0, 11, 0, 10, 0, 120, 0, 126, 0, 119, 0, 107, 0, 109, 0, 108, 0, 86, 0, 88, 0, 87, 0, 65, 0, 76, 0, 75, 0, 53, 0, 56, 0, 55, 0, 33, 0, 35, 0, 34, 0, 12, 0, 14, 0, 13, 0, 91, 0, 119, 0, 126, 0, 110, 0, 112, 0, 111, 0, 89, 0, 87, 0, 90, 0, 77, 0, 75, 0, 78, 0, 57, 0, 58, 0, 56, 0, 36, 0, 37, 0, 35, 0, 15, 0, 17, 0, 16, 0, 124, 0, 92, 0, 125, 0, 113, 0, 115, 0, 114, 0, 91, 0, 93, 0, 92, 0, 35, 0, 80, 0, 79, 0, 59, 0, 61, 0, 60, 0, 38, 0, 40, 0, 39, 0, 18, 0, 20, 0, 19, 0, 127, 0, 125, 0, 92, 0, 116, 0, 118, 0, 117, 0, 94, 0, 92, 0, 95, 0, 81, 0, 83, 0, 82, 0, 62, 0, 64, 0, 63, 0, 41, 0, 43, 0, 42, 0, 21, 0, 22, 0, 20, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 180,
+"material": ExtResource( 14 ),
+"name": "colormap",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 131
+}
+
+[node name="Super-Market-Espace" type="Spatial"]
+
+[node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
+follow_viewport_enable = true
+script = ExtResource( 15 )
+
+[node name="BotellaCounterLabel" type="Label" parent="HUD"]
+margin_left = 8.0
+margin_top = 14.0
+margin_right = 120.0
+margin_bottom = 52.0
+text = "Objetos en el carrito: "
+
+[node name="Jugador" type="Node" parent="."]
+
+[node name="KinematicBody" type="KinematicBody" parent="Jugador" groups=["Jugador"]]
+transform = Transform( 0.0486475, 0, 0.523411, 0, 1, 0, -0.995709, 0, 0.0925443, 5.05391, 0.396281, 1.35122 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Jugador/KinematicBody"]
+transform = Transform( 1.01702, 0, 0.056839, 0, 2.02727, 0, 0.0568389, 0, 1.62328, -0.0189223, 0.0621309, -0.203588 )
+shape = SubResource( 2 )
+
+[node name="Pivot" type="Spatial" parent="Jugador/KinematicBody"]
+
+[node name="Position3D" type="Position3D" parent="Jugador/KinematicBody/Pivot"]
+
+[node name="Camera" type="Camera" parent="Jugador/KinematicBody/Pivot/Position3D"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.228004, 0 )
+current = true
+
+[node name="shopping-cart 2" parent="Jugador" instance=ExtResource( 7 )]
+transform = Transform( -0.0427997, 0, -0.999084, 0, 1, 0, 0.999084, 0, -0.0427997, 4.63062, 0.031486, 1.34539 )
+
+[node name="Terreno" type="Node" parent="."]
+
+[node name="Spatial" parent="Terreno" instance=ExtResource( 1 )]
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial2" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial2/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial2/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial3" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial3/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial3/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial4" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial4/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial4/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial5" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial5/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial5/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial6" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial6/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial6/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial7" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial7/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial7/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial8" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial8/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial8/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial9" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial9/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial9/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial10" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial10/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial10/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial11" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial11/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial11/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial12" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial12/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial12/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial13" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial13/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial13/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial14" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial14/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial14/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial15" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial15/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial15/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial16" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial16/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial16/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial17" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial17/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial17/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial18" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial18/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial18/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial19" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial19/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial19/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial20" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial20/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial20/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial21" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial21/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial21/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial22" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial22/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial22/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial23" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial23/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial23/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial24" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial24/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial24/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial25" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial25/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial25/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial26" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial26/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial26/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial27" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial27/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial27/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial28" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial28/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial28/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial29" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial29/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial29/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Spatial30" parent="Terreno" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Spatial30/RootNode" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Spatial30/RootNode/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Walls" type="Node" parent="Terreno"]
+
+[node name="Spatial" type="Spatial" parent="Terreno/Walls"]
+
+[node name="wall-window 2" parent="Terreno/Walls/Spatial" instance=ExtResource( 8 )]
+transform = Transform( -0.999726, 0, -0.0234202, 0, 1, 0, 0.0234202, 0, -0.999726, 1.14387, 0.0231991, 4.76454 )
+
+[node name="wall-corner 2" parent="Terreno/Walls/Spatial" instance=ExtResource( 9 )]
+transform = Transform( -0.998444, 0, 0.0557692, 0, 1, 0, -0.0557692, 0, -0.998444, -0.809175, 0.022047, 4.75763 )
+
+[node name="wall 2" parent="Terreno/Walls/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 0.140107, 0.0216716, 4.77211 )
+
+[node name="wall 3" parent="Terreno/Walls/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 2.14188, 0.0216716, 4.77211 )
+
+[node name="wall 4" parent="Terreno/Walls/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 3.12028, 0.0216716, 4.77211 )
+
+[node name="wall 5" parent="Terreno/Walls/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 4.10179, 0.0216716, 4.77211 )
+
+[node name="wall 6" parent="Terreno/Walls/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 4.80789, 0.0115329, 4.7606 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Walls/Spatial"]
+transform = Transform( 3.58037, 0, 0, 0, 0.665342, 0, 0, 0, 0.302467, 2.49881, 0.393057, -0.795658 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Walls/Spatial/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="Walls2" type="Node" parent="Terreno"]
+
+[node name="Spatial" type="Spatial" parent="Terreno/Walls2"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5, 0, 4 )
+
+[node name="wall-window 2" parent="Terreno/Walls2/Spatial" instance=ExtResource( 8 )]
+transform = Transform( -0.999726, 0, -0.0234202, 0, 1, 0, 0.0234202, 0, -0.999726, 1.14387, 0.0231991, 4.76454 )
+
+[node name="wall-corner 2" parent="Terreno/Walls2/Spatial" instance=ExtResource( 9 )]
+transform = Transform( -0.998444, 0, 0.0557692, 0, 1, 0, -0.0557692, 0, -0.998444, -0.809175, 0.022047, 4.75763 )
+
+[node name="wall 2" parent="Terreno/Walls2/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 0.140107, 0.0216716, 4.77211 )
+
+[node name="wall 3" parent="Terreno/Walls2/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 2.14188, 0.0216716, 4.77211 )
+
+[node name="wall 4" parent="Terreno/Walls2/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 3.12028, 0.0216716, 4.77211 )
+
+[node name="wall 5" parent="Terreno/Walls2/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 4.10179, 0.0216716, 4.77211 )
+
+[node name="wall 6" parent="Terreno/Walls2/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 4.94524, 0.00675234, 4.78505 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Walls2"]
+transform = Transform( 3.58037, 0, 0, 0, 0.665342, 0, 0, 0, 0.302467, 2.49881, 0.393057, 4.73725 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Walls2/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="Walls3" type="Node" parent="Terreno"]
+
+[node name="Spatial" type="Spatial" parent="Terreno/Walls3"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, 0 )
+
+[node name="wall-window 2" parent="Terreno/Walls3/Spatial" instance=ExtResource( 8 )]
+transform = Transform( -0.999726, 0, -0.0234202, 0, 1, 0, 0.0234202, 0, -0.999726, 1.14387, 0.0231991, 4.76454 )
+
+[node name="wall-corner 2" parent="Terreno/Walls3/Spatial" instance=ExtResource( 9 )]
+transform = Transform( -0.998444, 0, 0.0557692, 0, 1, 0, -0.0557692, 0, -0.998444, -0.809175, 0.022047, 4.75763 )
+
+[node name="wall 2" parent="Terreno/Walls3/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 0.140107, 0.0216716, 4.77211 )
+
+[node name="wall 3" parent="Terreno/Walls3/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 2.14188, 0.0216716, 4.77211 )
+
+[node name="wall 4" parent="Terreno/Walls3/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 3.12028, 0.0216716, 4.77211 )
+
+[node name="wall 5" parent="Terreno/Walls3/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 4.10179, 0.0216716, 4.77211 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Walls3"]
+transform = Transform( -0.0238708, 0, -0.30246, 0, 0.665342, 0, 3.58029, 0, -0.00201659, 5.72597, 0.393108, 2.21396 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Walls3/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="Walls4" type="Node" parent="Terreno"]
+
+[node name="Spatial" type="Spatial" parent="Terreno/Walls4"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 4 )
+
+[node name="wall-window 2" parent="Terreno/Walls4/Spatial" instance=ExtResource( 8 )]
+transform = Transform( -0.999726, 0, -0.0234202, 0, 1, 0, 0.0234202, 0, -0.999726, 1.14387, 0.0231991, 4.76454 )
+
+[node name="wall-corner 2" parent="Terreno/Walls4/Spatial" instance=ExtResource( 9 )]
+transform = Transform( -0.998444, 0, 0.0557692, 0, 1, 0, -0.0557692, 0, -0.998444, -0.809175, 0.022047, 4.75763 )
+
+[node name="wall 2" parent="Terreno/Walls4/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 0.140107, 0.0216716, 4.77211 )
+
+[node name="wall 3" parent="Terreno/Walls4/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 2.14188, 0.0216716, 4.77211 )
+
+[node name="wall 4" parent="Terreno/Walls4/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 3.12028, 0.0216716, 4.77211 )
+
+[node name="wall 5" parent="Terreno/Walls4/Spatial" instance=ExtResource( 10 )]
+transform = Transform( -0.999988, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999988, 4.10179, 0.0216716, 4.77211 )
+
+[node name="StaticBody" type="StaticBody" parent="Terreno/Walls4"]
+transform = Transform( -0.0238708, 0, -0.30246, 0, 0.665342, 0, 3.58029, 0, -0.00201659, -0.736441, 0.393108, 2.21396 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Terreno/Walls4/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="Objetos-Scena" type="Node" parent="."]
+
+[node name="Cooler-Horizontal" parent="Objetos-Scena" instance=ExtResource( 2 )]
+transform = Transform( -0.0435845, 0, -0.99905, 0, 1, 0, 0.99905, 0, -0.0435845, 0.0397317, 0.0301406, 1.92678 )
+
+[node name="freezer" parent="Objetos-Scena/Cooler-Horizontal/RootNode" index="0"]
+transform = Transform( 0.997772, 0, 0.0667092, 0, 1, 0, -0.0667092, 0, 0.997772, 0.00761497, 0, 0.174552 )
+
+[node name="StaticBody" type="StaticBody" parent="Objetos-Scena/Cooler-Horizontal/RootNode" index="1"]
+transform = Transform( 4.77627, 0, -0.0171088, 0, 1.51719, 0, -0.0171088, 0, 4.38485, 0, 9.31323e-09, -1.49012e-08 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/Cooler-Horizontal/RootNode/StaticBody"]
+transform = Transform( 0.42229, 0, -0.00191635, 0, 0.171053, 0, -0.00191633, 0, 0.378447, -0.00204772, 0.189885, 8.93418e-05 )
+shape = SubResource( 3 )
+
+[node name="Cooler-Vertical" parent="Objetos-Scena" instance=ExtResource( 3 )]
+transform = Transform( 0.012374, 0, 0.999923, 0, 1, 0, -0.999923, 0, 0.012374, 0.169451, 0.0403795, 0.75037 )
+
+[node name="freezers-standing" parent="Objetos-Scena/Cooler-Vertical/RootNode" index="0"]
+transform = Transform( 0.999913, 0, 0.0132118, 0, 1, 0, -0.0132118, 0, 0.999913, -0.00057286, 0, -0.0462926 )
+
+[node name="StaticBody" type="StaticBody" parent="Objetos-Scena/Cooler-Vertical/RootNode" index="1"]
+transform = Transform( 5.14836, 0, 0.0195236, 0, 2.09795, 0, 0.0195235, 0, 6.72578, -0.0034287, 0.467023, -0.277108 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/Cooler-Vertical/RootNode/StaticBody"]
+transform = Transform( 0.0948419, 0, -0.000494959, 0, 0.186002, 0, -0.00049496, 0, 0.0548512, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Vitrina-1" parent="Objetos-Scena" instance=ExtResource( 4 )]
+transform = Transform( 0.999666, 0, -0.0258454, 0, 1, 0, 0.0258454, 0, 0.999666, 0.576146, 0.0294146, -0.036654 )
+
+[node name="StaticBody" type="StaticBody" parent="Objetos-Scena/Vitrina-1"]
+transform = Transform( 0.188945, 0, 0.0174768, 0, 0.830061, 0, 0.0174767, 0, 0.864472, -0.00880611, 0, -0.340609 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/Vitrina-1/StaticBody"]
+transform = Transform( 2.04286, 0, -0.0406896, 0, 0.542985, 0, -0.0406897, 0, 0.470093, 0.00396037, 0.47357, 0.153182 )
+shape = SubResource( 9 )
+
+[node name="shelf-boxes 2" parent="Objetos-Scena" instance=ExtResource( 11 )]
+transform = Transform( -0.999989, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999989, 1.27337, 0.0333059, 3.20494 )
+
+[node name="StaticBody" type="StaticBody" parent="Objetos-Scena/shelf-boxes 2"]
+transform = Transform( 0.361505, 0, -0.00254707, 0, 1.00184, 0, -0.00254706, 0, 0.890236, 0.00218415, 0, 1.04904e-05 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/shelf-boxes 2/StaticBody"]
+transform = Transform( 1.17441, 0, 0.00371219, 0, 1, 0, 0.00371219, 0, 0.403813, 0, 0, 0 )
+shape = SubResource( 8 )
+
+[node name="display-fruit 2" parent="Objetos-Scena" instance=ExtResource( 13 )]
+transform = Transform( -0.999989, 0, -0.00481714, 0, 1, 0, 0.00481714, 0, -0.999989, 1.29594, 0.024636, 1.6044 )
+
+[node name="StaticBody" type="StaticBody" parent="Objetos-Scena/display-fruit 2/display-fruit" index="0"]
+transform = Transform( 0.280024, 0, 0.000316279, 0, 0.64611, 0, 0.000316283, 0, 0.214369, 0.000134349, 0.595389, -0.0278937 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/display-fruit 2/display-fruit/StaticBody"]
+transform = Transform( 1.16508, 0, -0.00108256, 0, 1, 0, -0.00108256, 0, 1.38981, 0, 0, 0 )
+shape = SubResource( 7 )
+
+[node name="bottle-return 2" parent="Objetos-Scena" instance=ExtResource( 12 )]
+transform = Transform( 0.999318, 0.000881408, -0.0369097, -0.000597085, 0.99997, 0.00771392, 0.0369154, -0.00768666, 0.999289, 4.75371, 0.0130779, -0.226636 )
+
+[node name="Caja-Reg2" parent="Objetos-Scena" instance=ExtResource( 5 )]
+transform = Transform( -0.0291951, 0, -0.999574, 0, 1, 0, 0.999574, 0, -0.0291951, 3.146, 0.04, 2.54844 )
+
+[node name="cash-register" parent="Objetos-Scena/Caja-Reg2/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21645, 0, 0.0355296 )
+
+[node name="StaticBody" type="StaticBody" parent="Objetos-Scena/Caja-Reg2"]
+transform = Transform( 0.419545, 0, 0.0275791, 0, 1.70159, 0, 0.0275791, 0, 1.36298, -0.815924, 0.350058, 0.190784 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/Caja-Reg2/StaticBody"]
+transform = Transform( 0.633901, 0, -0.0148285, 0, 1, 0, -0.0148286, 0, 0.126638, -0.485032, 0, 0.0141652 )
+shape = SubResource( 11 )
+
+[node name="StaticBody2" type="StaticBody" parent="Objetos-Scena/Caja-Reg2"]
+transform = Transform( 1.06062, 0, 0.035936, 0, 1.97626, 0, 0.035936, 0, 2.28994, -1.42595, 0.410524, 0.0530384 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/Caja-Reg2/StaticBody2"]
+transform = Transform( 1.0856, 0, -0.0260867, 0, 0.89574, 0, -0.0260868, 0, 0.193207, 0, 0, 0 )
+shape = SubResource( 12 )
+
+[node name="Vitrina-2" parent="Objetos-Scena" instance=ExtResource( 4 )]
+transform = Transform( 1.74157e-05, 0, 1, 0, 1, 0, -1, 0, 1.74157e-05, -0.0140349, 0.029, 3.16263 )
+
+[node name="StaticBody" type="StaticBody" parent="Objetos-Scena/Vitrina-2"]
+transform = Transform( 0.188945, 0, 0.0174768, 0, 0.830061, 0, 0.0174767, 0, 0.864472, -0.00880611, 0, -0.340609 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/Vitrina-2/StaticBody"]
+transform = Transform( 2.04286, 0, -0.0406896, 0, 0.542985, 0, -0.0406897, 0, 0.470093, 0.00396037, 0.47357, 0.153182 )
+shape = SubResource( 9 )
+
+[node name="Vitrina-3" parent="Objetos-Scena" instance=ExtResource( 4 )]
+transform = Transform( 0.999666, 0, -0.0258454, 0, 1, 0, 0.0258454, 0, 0.999666, 1.52048, 0.0294146, -0.036654 )
+
+[node name="bottle" parent="Objetos-Scena/Vitrina-3/RootNode/shelf-end" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.203939, 0.55, -0.20111 )
+
+[node name="StaticBody" type="StaticBody" parent="Objetos-Scena/Vitrina-3"]
+transform = Transform( 0.188945, 0, 0.0174768, 0, 0.830061, 0, 0.0174767, 0, 0.864472, -0.00880611, 0, -0.340609 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/Vitrina-3/StaticBody"]
+transform = Transform( 2.04286, 0, -0.0406896, 0, 0.542985, 0, -0.0406897, 0, 0.470093, 0.00395966, 0.47357, 0.153182 )
+shape = SubResource( 9 )
+
+[node name="Vitrina-1" parent="Objetos-Scena/Vitrina-3" instance=ExtResource( 4 )]
+transform = Transform( 0.999666, 0, -0.0258454, 0, 1, 0, 0.0258454, 0, 0.999666, 0.922493, -0.0415485, -0.0456085 )
+
+[node name="StaticBody" type="StaticBody" parent="Objetos-Scena/Vitrina-3/Vitrina-1"]
+transform = Transform( 0.188945, 0, 0.0174768, 0, 0.830061, 0, 0.0174767, 0, 0.864472, -0.00880611, 0, -0.340609 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/Vitrina-3/Vitrina-1/StaticBody"]
+transform = Transform( 2.04286, 0, -0.0406896, 0, 0.542985, 0, -0.0406897, 0, 0.470093, 0.00396037, 0.47357, 0.153182 )
+shape = SubResource( 9 )
+
+[node name="Caja-Reg3" parent="Objetos-Scena" instance=ExtResource( 5 )]
+transform = Transform( -0.0291951, 0, -0.999574, 0, 1, 0, 0.999574, 0, -0.0291951, 3.146, 0.04, 5.08784 )
+
+[node name="cash-register" parent="Objetos-Scena/Caja-Reg3/RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21645, 0, 0.0355296 )
+
+[node name="StaticBody" type="StaticBody" parent="Objetos-Scena/Caja-Reg3"]
+transform = Transform( 0.419545, 0, 0.0275791, 0, 1.70159, 0, 0.0275791, 0, 1.36298, -0.815924, 0.350058, 0.190784 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/Caja-Reg3/StaticBody"]
+transform = Transform( 0.633901, 0, -0.0148285, 0, 1, 0, -0.0148286, 0, 0.126638, -0.485032, 0, 0.0141652 )
+shape = SubResource( 11 )
+
+[node name="StaticBody2" type="StaticBody" parent="Objetos-Scena/Caja-Reg3"]
+transform = Transform( 1.06062, 0, 0.035936, 0, 1.97626, 0, 0.035936, 0, 2.28994, -1.42595, 0.410524, 0.0530384 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Objetos-Scena/Caja-Reg3/StaticBody2"]
+transform = Transform( 1.0856, 0, -0.0260867, 0, 0.89574, 0, -0.0260868, 0, 0.193207, 0, 0, 0 )
+shape = SubResource( 12 )
+
+[node name="Luz-Principal" type="DirectionalLight" parent="."]
+transform = Transform( 0.999989, 0.000321328, 0.00459554, -0.003585, 0.680762, 0.732496, -0.0028931, -0.732505, 0.680756, 2.35844, 6.09603, 7.02466 )
+
+[node name="Obtejos-Interactivos" type="Node" parent="."]
+
+[node name="Botella-interactiva" type="Area" parent="Obtejos-Interactivos"]
+transform = Transform( 0.66473, 0, 0, 0, 0.78356, 0, 0, 0, 0.470522, 1.81095, 0.216914, 0.547889 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella-interactiva"]
+shape = SubResource( 14 )
+
+[node name="bottle_1" type="MeshInstance" parent="Obtejos-Interactivos/Botella-interactiva"]
+transform = Transform( 1.50437, 0, 0, 0, 1.27623, 0, 0, 0, 2.1253, 0.00255418, -0.224914, 0.00216341 )
+use_in_baked_light = true
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Obtejos-Interactivos/Botella-interactiva"]
+transform = Transform( 0.158607, 0, 1.49599, 0, 1.27623, 0, -2.11345, 0, 0.224073, 0.0565677, 0.632778, 0.0829418 )
+modulate = Color( 0.968627, 1, 0, 1 )
+
+[node name="Botella-interactiva2" type="Area" parent="Obtejos-Interactivos"]
+transform = Transform( 0.66473, 0, 0, 0, 0.78356, 0, 0, 0, 0.470522, 1.2914, 0.216914, 0.547889 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella-interactiva2"]
+shape = SubResource( 14 )
+
+[node name="bottle_1" type="MeshInstance" parent="Obtejos-Interactivos/Botella-interactiva2"]
+transform = Transform( 1.50437, 0, 0, 0, 1.27623, 0, 0, 0, 2.1253, 0.00255418, -0.224914, 0.00216341 )
+use_in_baked_light = true
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Obtejos-Interactivos/Botella-interactiva2"]
+transform = Transform( 0.158607, 0, 1.49599, 0, 1.27623, 0, -2.11345, 0, 0.224073, 0.0565677, 0.632778, 0.0829418 )
+modulate = Color( 0.968627, 1, 0, 1 )
+
+[node name="Botella-interactiva3" type="Area" parent="Obtejos-Interactivos"]
+transform = Transform( 0.66473, 0, 0, 0, 0.78356, 0, 0, 0, 0.470522, 2.95517, 0.216914, 0.547889 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella-interactiva3"]
+shape = SubResource( 14 )
+
+[node name="bottle_1" type="MeshInstance" parent="Obtejos-Interactivos/Botella-interactiva3"]
+transform = Transform( 1.50437, 0, 0, 0, 1.27623, 0, 0, 0, 2.1253, 0.00255418, -0.224914, 0.00216341 )
+use_in_baked_light = true
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Obtejos-Interactivos/Botella-interactiva3"]
+transform = Transform( 0.158607, 0, 1.49599, 0, 1.27623, 0, -2.11345, 0, 0.224073, 0.0565677, 0.632778, 0.0829418 )
+modulate = Color( 0.968627, 1, 0, 1 )
+
+[node name="Botella-interactiva4" type="Area" parent="Obtejos-Interactivos"]
+transform = Transform( 0.66473, 0, 0, 0, 0.78356, 0, 0, 0, 0.470522, 2.35588, 0.216914, 0.547889 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella-interactiva4"]
+shape = SubResource( 14 )
+
+[node name="bottle_1" type="MeshInstance" parent="Obtejos-Interactivos/Botella-interactiva4"]
+transform = Transform( 1.50437, 0, 0, 0, 1.27623, 0, 0, 0, 2.1253, 0.00255418, -0.224914, 0.00216341 )
+use_in_baked_light = true
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Obtejos-Interactivos/Botella-interactiva4"]
+transform = Transform( 0.158607, 0, 1.49599, 0, 1.27623, 0, -2.11345, 0, 0.224073, 0.0565677, 0.632778, 0.0829418 )
+modulate = Color( 0.968627, 1, 0, 1 )
+
+[node name="Botella-interactiva5" type="Area" parent="Obtejos-Interactivos"]
+transform = Transform( 0.66473, 0, 0, 0, 0.78356, 0, 0, 0, 0.470522, 0.625179, 0.216914, 0.504861 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella-interactiva5"]
+shape = SubResource( 14 )
+
+[node name="bottle_1" type="MeshInstance" parent="Obtejos-Interactivos/Botella-interactiva5"]
+transform = Transform( 1.50437, 0, 0, 0, 1.27623, 0, 0, 0, 2.1253, 0.00255418, -0.224914, 0.00216341 )
+use_in_baked_light = true
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Obtejos-Interactivos/Botella-interactiva5"]
+transform = Transform( 0.158607, 0, 1.49599, 0, 1.27623, 0, -2.11345, 0, 0.224073, 0.0565677, 0.632778, 0.0829418 )
+modulate = Color( 0.968627, 1, 0, 1 )
+
+[node name="Botella-interactiva6" type="Area" parent="Obtejos-Interactivos"]
+transform = Transform( 0.66473, 0, 0, 0, 0.78356, 0, 0, 0, 0.470522, 0.617975, 0.191062, 1.54899 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella-interactiva6"]
+shape = SubResource( 14 )
+
+[node name="bottle_1" type="MeshInstance" parent="Obtejos-Interactivos/Botella-interactiva6"]
+transform = Transform( 1.50437, 0, 0, 0, 1.27623, 0, 0, 0, 2.1253, 0.00255418, -0.224914, 0.00216341 )
+use_in_baked_light = true
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Obtejos-Interactivos/Botella-interactiva6"]
+transform = Transform( 0.158607, 0, 1.49599, 0, 1.27623, 0, -2.11345, 0, 0.224073, 0.0565677, 0.632778, 0.0829418 )
+modulate = Color( 0.968627, 1, 0, 1 )
+
+[node name="Botella-interactiva7" type="Area" parent="Obtejos-Interactivos"]
+transform = Transform( 0.66473, 0, 0, 0, 0.78356, 0, 0, 0, 0.470522, 0.615547, 0.216914, 2.44197 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella-interactiva7"]
+shape = SubResource( 14 )
+
+[node name="bottle_1" type="MeshInstance" parent="Obtejos-Interactivos/Botella-interactiva7"]
+transform = Transform( 1.50437, 0, 0, 0, 1.27623, 0, 0, 0, 2.1253, 0.00255418, -0.224914, 0.00216341 )
+use_in_baked_light = true
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Obtejos-Interactivos/Botella-interactiva7"]
+transform = Transform( 0.158607, 0, 1.49599, 0, 1.27623, 0, -2.11345, 0, 0.224073, 0.0565677, 0.632778, 0.0829418 )
+modulate = Color( 0.968627, 1, 0, 1 )
+
+[editable path="Terreno/Spatial"]
+[editable path="Terreno/Spatial2"]
+[editable path="Terreno/Spatial3"]
+[editable path="Terreno/Spatial4"]
+[editable path="Terreno/Spatial5"]
+[editable path="Terreno/Spatial6"]
+[editable path="Terreno/Spatial7"]
+[editable path="Terreno/Spatial8"]
+[editable path="Terreno/Spatial9"]
+[editable path="Terreno/Spatial10"]
+[editable path="Terreno/Spatial11"]
+[editable path="Terreno/Spatial12"]
+[editable path="Terreno/Spatial13"]
+[editable path="Terreno/Spatial14"]
+[editable path="Terreno/Spatial15"]
+[editable path="Terreno/Spatial16"]
+[editable path="Terreno/Spatial17"]
+[editable path="Terreno/Spatial18"]
+[editable path="Terreno/Spatial19"]
+[editable path="Terreno/Spatial20"]
+[editable path="Terreno/Spatial21"]
+[editable path="Terreno/Spatial22"]
+[editable path="Terreno/Spatial23"]
+[editable path="Terreno/Spatial24"]
+[editable path="Terreno/Spatial25"]
+[editable path="Terreno/Spatial26"]
+[editable path="Terreno/Spatial27"]
+[editable path="Terreno/Spatial28"]
+[editable path="Terreno/Spatial29"]
+[editable path="Terreno/Spatial30"]
+[editable path="Objetos-Scena/Cooler-Horizontal"]
+[editable path="Objetos-Scena/Cooler-Vertical"]
+[editable path="Objetos-Scena/Vitrina-1"]
+[editable path="Objetos-Scena/shelf-boxes 2"]
+[editable path="Objetos-Scena/display-fruit 2"]
+[editable path="Objetos-Scena/Caja-Reg2"]
+[editable path="Objetos-Scena/Vitrina-2"]
+[editable path="Objetos-Scena/Vitrina-3"]
+[editable path="Objetos-Scena/Vitrina-3/Vitrina-1"]
+[editable path="Objetos-Scena/Caja-Reg3"]
