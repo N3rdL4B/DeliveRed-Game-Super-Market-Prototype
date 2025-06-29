@@ -5,7 +5,7 @@ public class Jugador : KinematicBody
 {
 	[Export] public float Speed = 1.0f;
 	[Export] public float MouseSensitivity = 0.005f;
-
+	[Export] public float DistanciaRaycast = 10f;
 	private Vector3 _velocity = Vector3.Zero;
 	private Vector2 _mouseDelta = Vector2.Zero;
 
@@ -16,7 +16,7 @@ public class Jugador : KinematicBody
 	{
 		Input.SetMouseMode(Input.MouseModeEnum.Captured);
 		_pivot = GetNode<Spatial>("Pivot");
-		_camera = GetNode<Camera>("Pivot/Camera");
+		_camera = GetNode<Camera>("Pivot/Position3D/Camera");
 	}
 
 	public override void _Input(InputEvent @event)
@@ -67,6 +67,72 @@ public class Jugador : KinematicBody
 		{
 			Input.SetMouseMode(Input.MouseModeEnum.Visible);
 		}
+		
+		DetectarObjeto(); // 👈 Ahora sí, se detecta lo que estás mirando
+	}
+	
+	private void DetectarObjeto()
+	{
+		var spaceState = GetWorld().DirectSpaceState;
+
+		var screenCenter = new Vector2(
+			_camera.GetViewport().Size.x / 2,
+			_camera.GetViewport().Size.y / 2
+		);
+
+		var from = _camera.ProjectRayOrigin(screenCenter);
+		var to = from + _camera.ProjectRayNormal(screenCenter) * DistanciaRaycast;
+
+		// Consulta simple para cuerpos físicos
+		var result = spaceState.IntersectRay(from, to);
+
+		if (result.Count > 0 && result.Contains("collider"))
+		{
+			var nodoCollider = result["collider"] as Node;
+			GD.Print("🎯 Collider detectado: " + nodoCollider.Name);
+
+			// Buscar método MostrarInfo en collider o padres
+			Node nodoConMetodo = null;
+			Node currentNode = nodoCollider;
+
+			while (currentNode != null)
+			{
+				if (currentNode.HasMethod("MostrarInfo"))
+				{
+					nodoConMetodo = currentNode;
+					break;
+				}
+				currentNode = currentNode.GetParent();
+			}
+
+			if (nodoConMetodo != null)
+			{
+				GD.Print("✅ Llamando MostrarInfo en: " + nodoConMetodo.Name);
+				nodoConMetodo.Call("MostrarInfo");
+			}
+			else
+			{
+				GD.Print("❌ No se encontró método MostrarInfo en el collider ni en sus padres");
+			}
+		}
+		else
+		{
+			GD.Print("❌ No se detectó nada con el raycast");
+		}
 	}
 
+
+	private void MostrarJerarquiaAscendente(Node nodo)
+	{
+		GD.Print($"🔍 Jerarquía ascendente desde nodo: {nodo.Name}");
+		Node current = nodo;
+		int nivel = 0;
+
+		while (current != null && nivel < 10) // limita para evitar loops
+		{
+			GD.Print($"Nivel {nivel}: {current.Name} (Tipo: {current.GetType()})");
+			current = current.GetParent();
+			nivel++;
+		}
+	}
 }

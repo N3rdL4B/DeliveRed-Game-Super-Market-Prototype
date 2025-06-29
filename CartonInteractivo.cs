@@ -1,11 +1,11 @@
 using Godot;
 using System;
 
-public class Botellainteractiva : StaticBody
+public class CartonInteractivo : StaticBody
 {
 	[Export] public string Mensaje = "Objeto Recogido!";
-	[Export] public string NombreProducto = "Botella";
-	[Export] public float Precio = 1200f;
+	[Export] public string NombreProducto = "Caja Leche";
+	[Export] public float Precio = 2200f;
 	
 	public override void _Ready()
 	{
