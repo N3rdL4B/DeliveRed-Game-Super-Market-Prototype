@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/models/FBX_format/floor.fbx" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/FBX_format/freezer.fbx" type="PackedScene" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://HUD.cs" type="Script" id=15]
 [ext_resource path="res://scripts/ObjetosInteractivos/Botellainteractiva.cs" type="Script" id=16]
 [ext_resource path="res://CartonInteractivo.cs" type="Script" id=17]
+[ext_resource path="res://scripts/Global/ControladorGlobal.cs" type="Script" id=18]
+[ext_resource path="res://assets/images/webpay2.png" type="Texture" id=19]
+[ext_resource path="res://scripts/Global/BotonWebpay.cs" type="Script" id=20]
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.266025
@@ -81,7 +84,11 @@ surfaces/0 = {
 "vertex_count": 74
 }
 
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 0.225472, 0.301145, 0.247729 )
+
 [node name="Super-Market-Espace" type="Spatial"]
+script = ExtResource( 18 )
 
 [node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
 follow_viewport_enable = true
@@ -107,6 +114,38 @@ margin_right = 53.0
 margin_bottom = 22.0
 
 [node name="OcultarPanelTimer" type="Timer" parent="HUD"]
+
+[node name="PanelCarrito" type="Panel" parent="HUD"]
+modulate = Color( 1, 1, 1, 0.854902 )
+margin_left = 1.0
+margin_top = 342.0
+margin_right = 230.0
+margin_bottom = 599.0
+
+[node name="Label" type="Label" parent="HUD/PanelCarrito"]
+margin_left = 10.0
+margin_top = 13.0
+margin_right = 164.0
+margin_bottom = 27.0
+text = "Productos en el Carrito: "
+
+[node name="ItemsContainer" type="VBoxContainer" parent="HUD/PanelCarrito"]
+margin_left = 9.0
+margin_top = 35.0
+margin_right = 221.0
+margin_bottom = 57.0
+
+[node name="Separador" type="HSeparator" parent="HUD/PanelCarrito"]
+margin_left = 4.0
+margin_top = 229.0
+margin_right = 228.0
+margin_bottom = 234.0
+
+[node name="TotalLabel" type="Label" parent="HUD/PanelCarrito"]
+margin_left = 5.0
+margin_top = 237.0
+margin_right = 227.0
+margin_bottom = 251.0
 
 [node name="Jugador" type="Node" parent="."]
 
@@ -654,7 +693,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -673,7 +711,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella2/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -692,7 +729,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella3/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -711,7 +747,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella4/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -730,7 +765,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella5"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella5/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -749,7 +783,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella6"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella6/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -768,7 +801,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella7"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella7/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -787,7 +819,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella8/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -806,7 +837,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella9"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella9/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -825,7 +855,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella10"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella10/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -844,7 +873,6 @@ transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.36891, 0, -0.175432, -0.0
 mesh = SubResource( 14 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Botella11"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella11/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -863,7 +891,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.574797, 0, 0, 0 )
 shape = SubResource( 13 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Carton"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Carton/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -882,7 +909,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.574797, 0, 0, 0 )
 shape = SubResource( 13 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Carton2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Carton2/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -901,7 +927,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.574797, 0, 0, 0 )
 shape = SubResource( 13 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Carton3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Carton3/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
@@ -920,11 +945,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.574797, 0, 0, 0 )
 shape = SubResource( 13 )
 
 [node name="Detector" type="Area" parent="Obtejos-Interactivos/Carton4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Carton4/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
+
+[node name="BotonWebpay" type="StaticBody" parent="."]
+transform = Transform( 2.09479, 0, 0, 0, 1.02056, 0, 0, 0, 0.232461, 4.04065, 0.391034, 4.46533 )
+script = ExtResource( 20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="BotonWebpay"]
+transform = Transform( 0.946001, 0, 0, 0, 0.979854, 0, 0, 0, 1.15489, -1.07288e-06, 0.0723106, -0.111286 )
+shape = SubResource( 15 )
+
+[node name="Sprite3D" type="Sprite3D" parent="BotonWebpay"]
+transform = Transform( -0.0822928, 0, -0.00210247, 0, 0.193425, 0, 0.0149984, 0, -1.68878, -1.07288e-06, 0.0723106, -0.141792 )
+texture = ExtResource( 19 )
 
 [editable path="Terreno/Spatial"]
 [editable path="Terreno/Spatial2"]

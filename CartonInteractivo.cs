@@ -5,7 +5,7 @@ public class CartonInteractivo : StaticBody
 {
 	[Export] public string Mensaje = "Objeto Recogido!";
 	[Export] public string NombreProducto = "Caja Leche";
-	[Export] public float Precio = 2200f;
+	[Export] public float Precio = 2500f;
 	
 	public override void _Ready()
 	{
@@ -34,6 +34,7 @@ public class CartonInteractivo : StaticBody
 				GD.Print("✅ HUD encontrado y casteado correctamente");
 				hud.SumarBotella();
 				hud.ImprimirProductosPanel(Mensaje);
+				hud.AgregarProductoAlCarrito(NombreProducto, Precio);
 			}
 			else
 			{

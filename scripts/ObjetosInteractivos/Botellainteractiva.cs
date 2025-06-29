@@ -34,6 +34,7 @@ public class Botellainteractiva : StaticBody
 				GD.Print("✅ HUD encontrado y casteado correctamente");
 				hud.SumarBotella();
 				hud.ImprimirProductosPanel(Mensaje);
+				hud.AgregarProductoAlCarrito(NombreProducto, Precio);
 			}
 			else
 			{

@@ -20,13 +20,48 @@ public class Jugador : KinematicBody
 	}
 
 	public override void _Input(InputEvent @event)
+{
+	if (@event is InputEventMouseMotion mouseEvent)
 	{
-		if (@event is InputEventMouseMotion mouseEvent)
-		{
-			_mouseDelta = mouseEvent.Relative;
-			RotateCamera();
-		}
+		_mouseDelta = mouseEvent.Relative;
+		RotateCamera();
 	}
+
+	if (@event is InputEventMouseButton mb && mb.Pressed && mb.ButtonIndex == (int)ButtonList.Left)
+	{
+		GD.Print($"Click detectado: button {mb.ButtonIndex}");
+
+		var spaceState = GetWorld().DirectSpaceState;
+
+		var screenCenter = new Vector2(
+			_camera.GetViewport().Size.x / 2,
+			_camera.GetViewport().Size.y / 2
+		);
+
+		var from = _camera.ProjectRayOrigin(screenCenter);
+		var to = from + _camera.ProjectRayNormal(screenCenter) * DistanciaRaycast;
+
+		var result = spaceState.IntersectRay(from, to);
+
+		if (result.Count > 0 && result.Contains("collider"))
+		{
+			var collider = result["collider"] as Node;
+			GD.Print($"🎯 Click sobre collider: {collider.Name} ({collider.GetType()})");
+
+			if (collider is BotonWebpay boton)
+			{
+				GD.Print("🖱️ Botón Webpay clickeado!");
+				boton.AbrirWebpay();
+			}
+			else
+			{
+				GD.Print("❌ El objeto clickeado no es BotonWebpay");
+			}
+		}
+
+	}
+}
+
 
 	public override void _PhysicsProcess(float delta)
 	{
