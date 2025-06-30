@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CL NerdLab Prototype TEST 2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("ExportDebug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+361af2a2dd515e1f286a7df4cc034cda91609e80")]
 [assembly: System.Reflection.AssemblyProductAttribute("CL NerdLab Prototype TEST 2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CL NerdLab Prototype TEST 2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

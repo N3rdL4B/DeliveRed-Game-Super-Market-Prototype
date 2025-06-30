@@ -7,3 +7,4 @@ C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\Exp
 C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.csproj.CoreCompileInputs.cache
 C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.dll
 C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.pdb
+C:\Users\Norma\OneDrive\Documents\CL-NerdLab-Prototype-TEST-2\.mono\temp\obj\ExportDebug\CL NerdLab Prototype TEST 2.sourcelink.json

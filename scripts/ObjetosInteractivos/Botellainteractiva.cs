@@ -6,9 +6,13 @@ public class Botellainteractiva : StaticBody
 	[Export] public string Mensaje = "Objeto Recogido!";
 	[Export] public string NombreProducto = "Botella";
 	[Export] public float Precio = 1200f;
-	
+
+	private AudioStreamPlayer3D sfxPlayer;
+	private Timer deleteTimer;
+
 	public override void _Ready()
 	{
+		// Conectar detector
 		if (HasNode("Detector"))
 		{
 			var areaDetector = GetNode<Area>("Detector");
@@ -18,6 +22,23 @@ public class Botellainteractiva : StaticBody
 		else
 		{
 			GD.PrintErr("❌ No se encontró el nodo hijo 'Detector'");
+		}
+
+		// Obtener AudioStreamPlayer3D
+		if (HasNode("SFXPlayer"))
+			sfxPlayer = GetNode<AudioStreamPlayer3D>("SFXPlayer");
+		else
+			GD.PrintErr("❌ No se encontró el nodo hijo 'SFXPlayer'");
+
+		// Obtener Timer para eliminar
+		if (HasNode("DeleteTimer"))
+		{
+			deleteTimer = GetNode<Timer>("DeleteTimer");
+			deleteTimer.Connect("timeout", this, nameof(OnDeleteTimerTimeout));
+		}
+		else
+		{
+			GD.PrintErr("❌ No se encontró el nodo hijo 'DeleteTimer'");
 		}
 	}
 
@@ -40,10 +61,36 @@ public class Botellainteractiva : StaticBody
 			{
 				GD.PrintErr("❌ No se encontró el HUD o el casteo falló");
 			}
-			GD.Print("🧹 Eliminando objeto");
-			// Eliminamos el objeto recogido
-			QueueFree();
+
+ 			var collider = GetNode<CollisionShape>("CollisionShape");
+			if (collider != null)
+				collider.Disabled = true;
+			// Sonido
+			if (sfxPlayer != null)
+			{
+				GD.Print("Intentando reproducir sonido...");
+				sfxPlayer.Play();
+				GD.Print("Se llamó Play en AudioStreamPlayer3D");
+			}
+			else
+			{
+				GD.PrintErr("sfxPlayer es null");
+			}
+
+			// Hacer invisible el mesh o todo el nodo para "desaparecer" visualmente
+			Visible = false;
+
+			// Iniciar timer para eliminar después de que suene el audio
+			if (deleteTimer != null)
+				deleteTimer.Start();
+			else
+				QueueFree();
 		}
+	}
+
+	private void OnDeleteTimerTimeout()
+	{
+		QueueFree();
 	}
 
 	public void MostrarInfo()

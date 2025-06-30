@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://assets/models/FBX_format/floor.fbx" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/FBX_format/freezer.fbx" type="PackedScene" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://scripts/Global/ControladorGlobal.cs" type="Script" id=18]
 [ext_resource path="res://assets/images/webpay2.png" type="Texture" id=19]
 [ext_resource path="res://scripts/Global/BotonWebpay.cs" type="Script" id=20]
+[ext_resource path="res://MusicManager.cs" type="Script" id=21]
+[ext_resource path="res://audio/fx/cash-caja-registradora.mp3" type="AudioStream" id=22]
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.266025
@@ -676,7 +678,7 @@ transform = Transform( 1.0856, 0, -0.0260867, 0, 0.89574, 0, -0.0260868, 0, 0.19
 shape = SubResource( 12 )
 
 [node name="Luz-Principal" type="DirectionalLight" parent="."]
-transform = Transform( 0.999989, 0.000321328, 0.00459554, -0.003585, 0.680762, 0.732496, -0.0028931, -0.732505, 0.680756, 2.35844, 6.09603, 7.02466 )
+transform = Transform( 0.999989, 0.000321325, 0.00459554, -0.003585, 0.680762, 0.732496, -0.0028931, -0.732505, 0.680756, 2.35844, 6.09603, 7.02466 )
 
 [node name="Obtejos-Interactivos" type="Node" parent="."]
 
@@ -698,6 +700,12 @@ mesh = SubResource( 14 )
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
 
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella"]
+transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.15132, 0, 0, 0 )
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella"]
+
 [node name="Botella2" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 2.27822, 0.250038, 0.392131 )
 script = ExtResource( 16 )
@@ -715,6 +723,11 @@ mesh = SubResource( 14 )
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella2/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
+
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella2"]
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella2"]
 
 [node name="Botella3" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 1.4154, 0.250038, 0.392131 )
@@ -734,6 +747,11 @@ mesh = SubResource( 14 )
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
 
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella3"]
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella3"]
+
 [node name="Botella4" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 0.601637, 0.250038, 0.392131 )
 script = ExtResource( 16 )
@@ -751,6 +769,11 @@ mesh = SubResource( 14 )
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella4/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
+
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella4"]
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella4"]
 
 [node name="Botella5" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 0.601637, 0.250038, 1.25437 )
@@ -770,6 +793,11 @@ mesh = SubResource( 14 )
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
 
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella5"]
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella5"]
+
 [node name="Botella6" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 0.601637, 0.250038, 2.20895 )
 script = ExtResource( 16 )
@@ -787,6 +815,11 @@ mesh = SubResource( 14 )
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella6/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
+
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella6"]
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella6"]
 
 [node name="Botella7" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 0.601637, 0.250038, 3.07056 )
@@ -806,6 +839,11 @@ mesh = SubResource( 14 )
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
 
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella7"]
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella7"]
+
 [node name="Botella8" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 0.601637, 0.250038, 4.07741 )
 script = ExtResource( 16 )
@@ -823,6 +861,11 @@ mesh = SubResource( 14 )
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella8/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
+
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella8"]
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella8"]
 
 [node name="Botella9" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 1.2882, 0.250038, 4.07741 )
@@ -842,6 +885,11 @@ mesh = SubResource( 14 )
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
 
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella9"]
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella9"]
+
 [node name="Botella10" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 1.93827, 0.250038, 4.07741 )
 script = ExtResource( 16 )
@@ -859,6 +907,11 @@ mesh = SubResource( 14 )
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Botella10/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
+
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella10"]
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella10"]
 
 [node name="Botella11" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 2.32968, 0.259865, 3.39943 )
@@ -878,6 +931,11 @@ mesh = SubResource( 14 )
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
 
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Botella11"]
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Botella11"]
+
 [node name="Carton" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 1.08342, 0.250038, 2.52569 )
 script = ExtResource( 17 )
@@ -895,6 +953,12 @@ shape = SubResource( 13 )
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Carton/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
+
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Carton"]
+transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.15132, 0, 0, 0 )
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Carton"]
 
 [node name="Carton2" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 1.69582, 0.250038, 2.52569 )
@@ -914,6 +978,12 @@ shape = SubResource( 13 )
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
 
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Carton2"]
+transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.15132, 0, 0, 0 )
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Carton2"]
+
 [node name="Carton3" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 2.44638, 0.250038, 2.52569 )
 script = ExtResource( 17 )
@@ -931,6 +1001,12 @@ shape = SubResource( 13 )
 [node name="CollisionShape" type="CollisionShape" parent="Obtejos-Interactivos/Carton3/Detector"]
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
+
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Carton3"]
+transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.15132, 0, 0, 0 )
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Carton3"]
 
 [node name="Carton4" type="StaticBody" parent="Obtejos-Interactivos"]
 transform = Transform( 0.530086, 0, 0, 0, 1, 0, 0, 0, 0.868569, 3.19225, 0.250038, 2.52569 )
@@ -950,6 +1026,12 @@ shape = SubResource( 13 )
 transform = Transform( 1.10185, 0, 0, 0, 1, 0, 0, 0, 0.723681, 0, 0, 0 )
 shape = SubResource( 13 )
 
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="Obtejos-Interactivos/Carton4"]
+transform = Transform( 1.88649, 0, 0, 0, 1, 0, 0, 0, 1.15132, 0, 0, 0 )
+stream = ExtResource( 22 )
+
+[node name="DeleteTimer" type="Timer" parent="Obtejos-Interactivos/Carton4"]
+
 [node name="BotonWebpay" type="StaticBody" parent="."]
 transform = Transform( 2.09479, 0, 0, 0, 1.02056, 0, 0, 0, 0.232461, 4.04065, 0.391034, 4.46533 )
 script = ExtResource( 20 )
@@ -961,6 +1043,11 @@ shape = SubResource( 15 )
 [node name="Sprite3D" type="Sprite3D" parent="BotonWebpay"]
 transform = Transform( -0.0822928, 0, -0.00210247, 0, 0.193425, 0, 0.0149984, 0, -1.68878, -1.07288e-06, 0.0723106, -0.141792 )
 texture = ExtResource( 19 )
+
+[node name="MusicManager" type="Node2D" parent="."]
+script = ExtResource( 21 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="MusicManager"]
 
 [editable path="Terreno/Spatial"]
 [editable path="Terreno/Spatial2"]
